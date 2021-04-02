@@ -2,7 +2,12 @@ import PropTypes from 'prop-types';
 
 function ListItem({ launch }) {
   return (
-    <h3>There'll be a list here</h3>
+    <li>
+      <p>Flight number: {launch.flight_number}</p>
+      <p>Mission name: {launch.mission_name}</p>
+      <p>Date: {launch.launch_date_utc}</p>
+      <p>Rocket name: {launch.rocket.rocket_name}</p>
+    </li>
   );
 
 };
