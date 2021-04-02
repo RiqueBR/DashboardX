@@ -1,9 +1,35 @@
 import { useFetch } from '../utils/hooks/useFetch';
 import ListItem from '../components/listItem';
+import Layout from '../components/layout';
+
+// Assets
 import LaunchImg from '../assets/img/launch-home.png';
 import SpaceXLogo from '../assets/spacex-logo.png';
 
 function Landing() {
+
+  const LandingStyles = {
+    LaunchImg: {
+      gridColumn: '1',
+      height: 'auto',
+      width: '50%'
+    },
+    LogoWrapper: {
+      display: 'flex',
+      flexDirection: 'row',
+      justifyContent: 'start',
+      height: '3rem'
+    },
+    Logo: {
+      height: '45%',
+      width: '20%',
+      alignSelf: 'end'
+    },
+    LogoWording: {
+      alignSelf: 'end',
+      margin: '0'
+    }
+  };
 
   const MockedLaunches = [
     {
@@ -49,17 +75,19 @@ function Landing() {
   ];
 
   return (
-    <div>
-      <h1>DashboardX</h1>
-      <img src={ SpaceXLogo } alt="SpaceX logo" style={ { height: 'auto', width: '40%' } }/>
-      <img src={ LaunchImg } alt="Image of a rocket launch" style={ { height: 'auto', width: '50%' } }/>
+    <Layout>
+      {/* <h1>DashboardX</h1> */}
+      <div style={ LandingStyles.LogoWrapper }>
+        <img src={ SpaceXLogo } alt="SpaceX logo" style={ LandingStyles.Logo }/>
+        <p style={ LandingStyles.LogoWording }>Launches</p>
+      </div>
+      <img src={ LaunchImg } alt="Image of a rocket launch" style={ LandingStyles.LaunchImg }/>
       <ul>
         {MockedLaunches.map(launchObj => (
           <ListItem key={ launchObj.flight_number } launch={ launchObj } />
-        ))}
+          ))}
       </ul>
-    </div>
+    </Layout>
   );
-};
-
+}
 export default Landing;

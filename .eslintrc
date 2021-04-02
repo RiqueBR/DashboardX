@@ -13,8 +13,11 @@
       "always"
     ],
     "array-bracket-spacing": [
-      2,
-      "always"
+      "error",
+      "always",
+      {
+        "singleValue": false
+      }
     ],
     "object-curly-spacing": [
       2,
